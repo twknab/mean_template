@@ -22,6 +22,11 @@ want to do in order to do so. There's also a log at the bottom of some of the
 technical developmental issues I hit when building things out. I kept this there
 for my future reference, if I ever hit the same issues again when building.
 
+One last note: The `/server/server.js` has been modularized already. I also setup
+some Mongoose Middleware, in the event you use session and want an easy way to
+manage data. This can be deleted along with the `/server/middlware` folder if
+you are not requiring it for your project.
+
 
 [HOW TO CUSTOMIZE]:
 
