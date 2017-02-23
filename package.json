@@ -1,5 +1,5 @@
 {
-  "name": "template_mean_project",
+  "name": "mean_template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,5 +12,9 @@
     "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "mongoose": "^4.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timothyknab/mean_template.git"
   }
 }

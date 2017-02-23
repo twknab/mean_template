@@ -38,89 +38,84 @@ issues that I experienced during development/running additions.
 5. Install `node` and `bower` dependencies:
 
 	+ `npm install`
-
 		+ `express`, `body-parser`, and `mongoose` have been setup.
 		+ you can add any additional dependencies (ie, `bcrypt`, `express-session` if you want via `npm install {{dependency}}`).
-
 	+ `bower install`
-
 		+ `angular` and `angular-route` have been setup.
 
-6. Update database name to a name fitting for your project:
+6. Update `package.json` to reflect your New Project name and your New Repository:
+
+ 	+ Open `/package.json`
+	+ Change the `name` field to your project name.
+	+ Change the `Repository.url` to your github project  repo.
+
+7. Update database name to a name fitting for your project:
 
  	+ Open `/server/config/db.js`
 	+ Rename `dbName` variable to your desired database name used for MongoDB.
 
-7. Rename any mongoose models (`/server/models`) to fit your initial DB design.
+8. Rename any mongoose models (`/server/models`) to fit your initial DB design.
+
 	+ Only one Mongoose model template ('Users')  has been created.
 
-8. Rename your Angular Controller (`/client/controllers`)
+9. Rename your Angular Controller (`/client/controllers`):
+
 	+ `$location` and `$routeParams` have been setup by default:
 	**DELETE** if not needed else you will have loaded Angular services into
 	your project which are never called.
-
 	+ Two controllers have been setup (`user-controller` and
 	`user-edit-controller`), along with ability to load error objects.
-
 	+ The first controller creates, reads all and deletes. The
 	second controller edits and reads one. Full CRUD setup ready to go.
 
-9. Rename your  Angular Factory (`/client/factories`) to reflect your design.
+10. Rename your  Angular Factory (`/client/factories`) to reflect your design.
 
 	+ Only one Angular Factory has been created: This handles both the
 	`user-controller` and the `user-edit-controller`.
-
 	+ `$http` service has been loaded for you, **DELETE** if needed.
 
-10. Update your Angular Routes (`/client/config`) and your initial Views file:
+11. Update your Angular Routes (`/client/config`) and your initial Views file:
 
 	+ `/client/index.html` is your outer frame,
 	+ `/client/html/index.html` is your first partial.
 	+ `/client/html/edit.html` is the partial loaded for editing.
 
-11. Make sure you update your Angular Config file (`client/config/app.js`)
+12. Make sure you update your Angular Config file (`client/config/app.js`)
 	to customize your Angular Module and to add or remove any additional Angular
 	services you may need.
-
 	+ `ngRoute` has been setup by default.
 
-12. Check your server routes (`/server/config/routes.js`):
+13. Check your server routes (`/server/config/routes.js`):
 
 	+ By default a create method is setup for your default mongoose model.
-
 	+ **BE SURE** to update both the mongoose model variable (`User` by default),
 	and to update your method to reflect your appropriate mongoose query
 	needs. Only one method has been setup.
-
 	+ Restful routing has been setup, along with one route which contains
 	a route parameter (ie, `/myroute/:id`)
 
-13. Rename your server controllers:
+14. Rename your server controllers:
 
 	+ Only one has been setup to handle all CRUD operations for `User`: `/server/controllers/user-controller.js`
 
-14. Update your primary index page title and content (`/client/index.html`):
+15. Update your primary index page title and content (`/client/index.html`):
 
 	+ `angular`, `angular-route` have been loaded by default.
-
 	+ Your angular app, controllers and factories have been loaded by
 	default: **BE SURE** to update these filenames to the changes you made
 	above.
 
-15. Update `/server/config/app.js`
+16. Update `/server/config/app.js`
 
 	+ If using session, setup, else **DELETE** unneeded commenting (Session
 	is already setup, but not `npm` installed, and uncommenting the info
 	will invoke it).
-
 	+ bodyParser URL Encoded is setup also for uncommenting and usage.
 
-16. Test your file by launching it!
+17. Test your file by launching it!
 
 	+ `npm start` from the root project directory.
-
 	+ By default, the port is setup to run on 8000.
-
 	+ Open your browser: http://localhost:8000 should load!
 
 ###New Features Log:
@@ -145,7 +140,6 @@ name to `UserController` in server-side Controller.
 	+ I made an error by using the wrong RegExp pattern, when doing my `pre`
 	validations for a case insensitive mongoose query (designed to see if
 	an existing user, no matter the case, exists).
-
 	+ Because my previous Query was:
 
 	`User.findOne({username: { $regex : new RegExp(username, "i")}})`
@@ -154,7 +148,6 @@ name to `UserController` in server-side Controller.
 	be built similar to `\timknab\i`, where what we needed, for exact
 	string match, is, `\^timknab$\`. So the regex object you were making
 	and testing was wrong.
-
 	+ Here is the correct pattern, which searches for **EXACT** word match
 	via `^` and `$`:
 
@@ -175,7 +168,6 @@ Validations:
 	+ Using `findByIdAndUpdate` bypasses validations and `pre` and `post`
 	middleware hooks. You have to nest your queries and invoke `.save()`
 	in order for the validations to again run.
-
 	+ To Do This: First lookup the user, then use `.save()`: the `save()`
 	function by default runs the validations, including `pre` and `post`
 	mongoose middleware hooks.
