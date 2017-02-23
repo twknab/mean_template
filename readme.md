@@ -125,9 +125,9 @@ issues that I experienced during development/running additions.
 
 ###New Features Log:
 
-	+ **02/22/17** Cleaned up `Readme.md` Added `.gitignore` to ignore `node_modules`
-	and `bower_components` folders, removed plural from `UsersController` variable
-	name to `UserController` in server-side Controller.
++ **02/22/17** Cleaned up `Readme.md` Added `.gitignore` to ignore `node_modules`
+and `bower_components` folders, removed plural from `UsersController` variable
+name to `UserController` in server-side Controller.
 
 ###Development Issues Log:
 
@@ -140,7 +140,7 @@ issues that I experienced during development/running additions.
 	user didn't exist. This bug was only found now during the edit build out
 	functionality of the CRUD operations.
 
-####Solution:
+	####Solution:
 
 	+ I made an error by using the wrong RegExp pattern, when doing my `pre`
 	validations for a case insensitive mongoose query (designed to see if
@@ -170,7 +170,7 @@ Validations:
 
 	+ All validations, including post, pre and built in hooks were not running.
 
-####Solution:
+	####Solution:
 
 	+ Using `findByIdAndUpdate` bypasses validations and `pre` and `post`
 	middleware hooks. You have to nest your queries and invoke `.save()`
