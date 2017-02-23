@@ -109,23 +109,23 @@ issues that I experienced during development/running additions.
 
 15. Update `/server/config/app.js`
 
-		+ If using session, setup, else **DELETE** unneeded commenting (Session
-		is already setup, but not `npm` installed, and uncommenting the info
-		will invoke it).
+	+ If using session, setup, else **DELETE** unneeded commenting (Session
+	is already setup, but not `npm` installed, and uncommenting the info
+	will invoke it).
 
-		+ bodyParser URL Encoded is setup also for uncommenting and usage.
+	+ bodyParser URL Encoded is setup also for uncommenting and usage.
 
 16. Test your file by launching it!
 
-		+ `npm start` from the root project directory.
+	+ `npm start` from the root project directory.
 
-		+ By default, the port is setup to run on 8000.
+	+ By default, the port is setup to run on 8000.
 
-		+ Open your browser: http://localhost:8000 should load!
+	+ Open your browser: http://localhost:8000 should load!
 
 ###New Features Log:
 
-+ **02/22/17** Cleaned up `Readme.md` Added `.gitignore` to ignore `node_modules`
++ **02/22/17**: Cleaned up `Readme.md` Added `.gitignore` to ignore `node_modules`
 and `bower_components` folders, removed plural from `UsersController` variable
 name to `UserController` in server-side Controller.
 
