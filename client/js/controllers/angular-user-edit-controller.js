@@ -9,7 +9,7 @@ app.controller('editUserController', ['$scope', 'userFactory', '$location', '$ro
             $location.url('/');
         },
         error: function(err) {
-            $scope.error = err;
+            $scope.errors = err;
             $scope.findOne();
         },
     };

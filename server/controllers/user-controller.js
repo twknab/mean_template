@@ -16,7 +16,7 @@ module.exports = {
                     return res.status(500).json(err.message);
                 } else {
                     console.log('Built in Mongoose Validation detected....');
-                    return res.status(500).json(err.errors.username.message)
+                    return res.status(500).json(err.errors)
                 };
             })
     },
@@ -24,10 +24,6 @@ module.exports = {
         console.log('Server-side user controller talking...showing all posts...');
         User.find({})
             .then(function(allUsers) {
-                console.log('All users found!');
-                console.log('%%%%%%%%%%%%%%%%%');
-                console.log(allUsers);
-                console.log('%%%%%%%%%%%%%%%%%');
                 return res.json(allUsers);
             })
             .catch(function(err) {
@@ -38,7 +34,6 @@ module.exports = {
     findOne: function(req, res) {
         User.findOne({_id: req.params.id})
             .then(function(userToEdit) {
-                console.log('Found user...', userToEdit);
                 req.user = userToEdit; // attaches user to req for easy access later
                 return res.json(userToEdit);
             })
@@ -63,7 +58,7 @@ module.exports = {
                             return res.status(500).json(err.message);
                         } else {
                             console.log('Built in Mongoose Validation detected....');
-                            return res.status(500).json(err.errors.username.message)
+                            return res.status(500).json(err.errors)
                         };
                     });
             })
@@ -71,17 +66,6 @@ module.exports = {
                 console.log('There has been an error!');
                 return res.status(500).json(err);
             })
-
-        /* NOTE: You can do it this way, but your PRE/POST and BUILT-IN VALIDATIONS won't run! The above way ensures any updates validate!
-            User.findOneAndUpdate({_id: req.params.id}, req.body) // note: pre and post hooks do not run here
-                .then(function(updatedUser) {
-                    console.log(updatedUser);
-                    return res.json(updatedUser);
-                })
-                .catch(function(err) {
-                    console.log(err);
-                })
-        */
     },
     delete: function(req, res) {
         User.remove({_id: req.params.id})

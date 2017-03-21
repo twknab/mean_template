@@ -3,14 +3,14 @@ app.controller('userController', ['$scope', 'userFactory', '$location', '$routeP
     // Callbacks
     var cb = {
         create: function(newUser) {
-            $scope.error = '';
+            $scope.errors = '';
             $scope.person = {};
             $scope.allUsers = {};
             $scope.user = newUser;
         },
         error: function(err) {
             console.log('Errors returned from server:', err);
-            $scope.error = err;
+            $scope.errors = err;
         },
         show: function(allUsers) {
             console.log(allUsers);

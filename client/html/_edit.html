@@ -1,5 +1,5 @@
 <h2>Edit:</h2>
-<p ng-bind="error" class="error"></p>
+<p ng-repeat="error in errors" class="error">{{error.message}}</p>
 <form ng-submit="update()">
     <label for="username">
         <input type="text" name="username" id="username" ng-model="user.username">
