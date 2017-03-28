@@ -12,8 +12,12 @@ module.exports = {
             .catch(function(err) {
                 console.log('Error trying to create user!', err);
                 if (err.errors == null) {
-                    console.log('Custom Validator Function Error detected...formatting now and sending to front end:');
-                    return res.status(500).json(err.message);
+                    console.log('Custom Validator Function Error detected...');
+                    return res.status(500).json({
+                        custom: {
+                            message: err.message
+                        }
+                    });
                 } else {
                     console.log('Built in Mongoose Validation detected....');
                     return res.status(500).json(err.errors)
@@ -54,8 +58,12 @@ module.exports = {
                     .catch(function(err) {
                         console.log('Error updating and saving user!', err);
                         if (err.errors == null) {
-                            console.log('Custom Validator Function Error detected...formatting now and sending to front end:');
-                            return res.status(500).json(err.message);
+                            console.log('Custom Validator Function Error detected...');
+                            return res.status(500).json({
+                                custom: {
+                                    message: err.message
+                                }
+                            });
                         } else {
                             console.log('Built in Mongoose Validation detected....');
                             return res.status(500).json(err.errors)
