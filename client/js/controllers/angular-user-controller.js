@@ -4,7 +4,7 @@ app.controller('userController', ['$scope', 'userFactory', '$location', '$routeP
     var cb = {
         create: function(newUser) {
             $scope.errors = '';
-            $scope.person = {};
+            $scope.user = {};
             $scope.allUsers = {};
             $scope.user = newUser;
         },
@@ -24,7 +24,7 @@ app.controller('userController', ['$scope', 'userFactory', '$location', '$routeP
     // Create User:
     $scope.create = function() {
         console.log('Create Process: Angular controller running...', $scope.person);
-        userFactory.create($scope.person, cb.create, cb.error);
+        userFactory.create($scope.user, cb.create, cb.error);
     };
 
     // Show Users:
