@@ -1,4 +1,4 @@
-# M E A N   |   T E M P L A T E   |   v 1 . 0
+# M E A N   |   T E M P L A T E   |   A n g 1 . x
 
 Notes: This file is a modularized MEAN project with a single `User` model schema with
 View partials for all CRUD operations.
